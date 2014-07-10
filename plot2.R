@@ -1,4 +1,4 @@
-# Plot 1: Global Active Power
+# Plot 2: Global Active Power
 
 # Read the data
 data <- read.table("household_power_consumption.txt", header = TRUE, sep = ";", na.strings ="?")
@@ -11,6 +11,6 @@ subdata$Time <- strptime(paste(subdata$Date, subdata$Time), format = "%d/%m/%Y%H
 subdata$Date <- as.Date(subdata$Date, format = "%d/%m/%Y")
 
 # Generate the plot
-png(file = "plot1.png")
-with(subdata, hist(Global_active_power, main = "Global Active Power", xlab = "Global Active Power (kilowatts)", col = "red"))
+png(file = "plot2.png")
+with(subdata, plot(Time, Global_active_power, xlab ="", ylab = "Global Active Power (kilowatts)", type = "l"))
 dev.off()
